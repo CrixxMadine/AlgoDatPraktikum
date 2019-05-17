@@ -135,11 +135,14 @@ namespace AlgoDatPraktikum
 
         protected override int HashAlgorithm(int elem)
         {
-            int tablePosition = (elem + quadProbCount * quadProbCount) % tableSize;
+            int tablePosition = (elem + quadProbCount * Math.Abs(quadProbCount)) % tableSize;
 
             if (hashTable[tablePosition] != elem || hashTable[tablePosition] != 0)
             {
-                quadProbCount++;
+                quadProbCount = -quadProbCount;
+                if (quadProbCount >= 0)
+                    quadProbCount++;
+
                 HashAlgorithm(elem);
             }
 
