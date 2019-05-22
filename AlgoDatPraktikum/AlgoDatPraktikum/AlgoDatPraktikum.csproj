@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays.cs" />
+    <Compile Include="Tree.cs" />
     <Compile Include="Hashverfahren.cs" />
     <Compile Include="IDictionary.cs" />
+    <Compile Include="LinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

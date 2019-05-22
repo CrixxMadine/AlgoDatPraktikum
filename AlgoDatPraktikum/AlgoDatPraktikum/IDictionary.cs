@@ -8,13 +8,13 @@ namespace AlgoDatPraktikum
 {
     interface IDictionary
     {
-        bool search(int elem);   // true = gefunden
+        bool Search(int elem);   // true = gefunden
 
-        bool insert(int elem);   // true = hinzugefügt
+        bool Insert(int elem);   // true = hinzugefügt
 
-        bool delete(int elem);   // true = gelöscht
+        bool Delete(int elem);   // true = gelöscht
 
-        void print();            // Einfache Ausgabe der Elemente des Wörterbuchs auf der Console,
+        void Print();            // Einfache Ausgabe der Elemente des Wörterbuchs auf der Console,
                                  // so dass Inhalt und Struktur daraus eindeutig erkennbar
                                  // Für die Ausgabe von Bäumen wird das in der Übung behandelte Verfahren verwendet
     }
