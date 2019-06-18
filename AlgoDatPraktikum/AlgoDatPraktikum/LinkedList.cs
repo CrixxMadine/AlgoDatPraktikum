@@ -15,50 +15,52 @@ namespace AlgoDatPraktikum
         protected Element wurzel;
         public LinkedList() => wurzel = null;
 
+        public bool ListIsEmpty() => wurzel == null; 
+
         public bool Search(int elem)
         {
-            return Search(elem, out _);
+            if (wurzel == null)
+                return false;
+            Element test = Search(elem, wurzel);
+            if (test == null || test.wert != elem)
+                return false;
+            return true;
         }
 
-        protected bool Search(int wert, out Element vorgänger)
+        //Entweder Fundort oder Vorgänger (wenn null = Anfang der liste)
+        protected Element Search(int wert, Element E)
         {
-            vorgänger = wurzel;
-            if (wurzel != null)
-            {
-                for (; vorgänger.next != null; vorgänger = vorgänger.next)
-                {
-                    if (vorgänger.next.wert == wert)
-                        return true;
-                }
-                if (wurzel.wert == wert)
-                {
-                    vorgänger = null;
-                    return true;
-                }
-            }
-            return false;
+            if (E.next == null || E.wert == wert)
+                return E;
+            return Search(wert, E.next);
         }
 
 
         public bool Delete(int elem)
         {
-            bool gefunden = Search(elem, out Element vorgänger);
-            if (!gefunden)
+            if (wurzel == null)
                 return false;
-            if (vorgänger == null)
+            Element E = Search(elem, wurzel);
+            if (E == null || E.wert != elem)
+                return false;
+            if (E == wurzel)
             {
                 wurzel = wurzel.next;
-                return true;
             }
-            vorgänger.next = vorgänger.next.next;
+            if (E.next == null)
+                E = null;
+            else
+            {
+                E.wert = E.next.wert;
+                E.next = E.next.next;
+            }
             return true;
         }
 
         public void Print()
         {
             for (Element tmp = wurzel; tmp != null; tmp = tmp.next)
-                Console.Write($"-{tmp.wert}- ");     // Console.WriteLine temporär verändert  ---   mfg Madini
-            Console.WriteLine();
+                Console.WriteLine(tmp.wert);
         }
     }
 
@@ -69,6 +71,11 @@ namespace AlgoDatPraktikum
         public bool Insert(int elem)
         {
             Element neu = new Element(elem);
+            if (wurzel == null)
+            {
+                wurzel = neu;
+                return true;
+            }
             neu.next = wurzel;
             wurzel = neu;
             return true;
@@ -81,8 +88,13 @@ namespace AlgoDatPraktikum
 
         new public bool Insert(int elem)
         {
-            bool gefunden = Search(elem, out _);
-            if (gefunden)                           // Wahrheitswert in Bedingung umgedreht (davor mit !, jetzt ohne)  ---  mfg Madini
+            if (wurzel == null)
+            {
+                wurzel = new Element(elem);
+                return true;
+            }
+            Element E = Search(elem, wurzel);
+            if (E.wert == elem)
                 return false;
             base.Insert(elem);
             return true;
@@ -95,41 +107,34 @@ namespace AlgoDatPraktikum
 
         public bool Insert(int elem)
         {
-            bool gefunden = Search(elem, out Element vorgänger);
-            Insert(elem, vorgänger);
-            return true;
-        }
-
-        new protected bool Search(int wert, out Element vorgänger)
-        {
-            bool gefunden = false;
-            if (wurzel == null || wert < wurzel.wert)
-            {
-                vorgänger = null;
-                return false;
-            }
-            vorgänger = wurzel;
-            for (Element tmp = wurzel; tmp != null; tmp = tmp.next)
-            {
-                if (tmp.wert == wert)
-                    gefunden = true;
-                if (vorgänger.wert < tmp.wert && tmp.wert < wert)
-                    vorgänger = tmp;
-            }
-            return gefunden;
-        }
-
-        protected void Insert(int elem, Element vorgänger)
-        {
             Element neu = new Element(elem);
-            if (vorgänger == null)
+            if (wurzel == null)
+            {
+                wurzel = neu;
+                return true;
+            }
+            if (wurzel.wert > elem)
             {
                 neu.next = wurzel;
                 wurzel = neu;
-                return;
+                return true;
             }
-            neu.next = vorgänger.next;
-            vorgänger.next = neu;
+            Element test = Search(elem, wurzel);
+            if(test == null)
+            {
+                neu.next = wurzel;
+                wurzel = neu;
+            }
+            neu.next = test.next;
+            test.next = neu;
+            return true;
+        }
+
+        new protected Element Search(int wert, Element E)
+        {
+            if (E.next == null || E.next.wert >= wert)
+                return E;
+            return Search(wert, E.next);
         }
     }
 
@@ -139,12 +144,30 @@ namespace AlgoDatPraktikum
 
         new public bool Insert(int elem)
         {
-            bool gefunden = Search(elem, out Element vorgänger);
-            if (gefunden)
+            Element neu = new Element(elem);
+            if (wurzel == null)
+            {
+                wurzel = neu;
+                return true;
+            }
+            if (wurzel.wert > elem)
+            {
+                neu.next = wurzel;
+                wurzel = neu;
+                return true;
+            }
+            Element test = Search(elem, wurzel);
+            if (test == null)
+            {
+                neu.next = wurzel;
+                wurzel = neu;
+                return true;
+            }
+            if (test.wert == elem)
                 return false;
-            base.Insert(elem, vorgänger);
+            neu.next = test.next;
+            test.next = neu;
             return true;
-
         }
     }
 }
