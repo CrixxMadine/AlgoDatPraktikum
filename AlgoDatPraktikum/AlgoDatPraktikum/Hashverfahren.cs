@@ -68,6 +68,10 @@ namespace AlgoDatPraktikum
             if (Search(elem, out int tablePosition))
             {
                 hashChains[tablePosition].Delete(elem);
+
+                if (hashChains[tablePosition].ListIsEmpty())
+                    hashChains[tablePosition] = null;
+
                 return true;
             }
 
@@ -76,15 +80,20 @@ namespace AlgoDatPraktikum
 
         public void Print()
         {
+            bool tableIsEmpty = false;
+
             for(int i = 0; i < tableSize; i++)
             {
-                if (hashChains[i] != null)
+                if (hashChains[i] != null) // printed noch bei gelöschten Elementen
                 {
                     Console.Write("Elemente an Tabellenplatz {0} :", i);
                     hashChains[i].Print();
+                    tableIsEmpty = true;
                 }
             }
-        }
+            if (!tableIsEmpty)
+                Console.WriteLine("Liste Leer");
+        } 
 
 
         protected override int HashAlgorithm(int elem) => (((int)(0.618 * elem)) % tableSize);
@@ -97,7 +106,7 @@ namespace AlgoDatPraktikum
         // quadratic probing: in case of collision, the interval is increased/decreased by adding the successive outputs of a quadratic polynomial
 
         static int[] hashTable = new int[tableSize];
-        static int quadProbCount = 0;
+        int quadProbCount = 0;
 
         public bool Insert(int elem)
         {
@@ -113,7 +122,7 @@ namespace AlgoDatPraktikum
         {
             if (Search(elem, out int tablePosition))
             {
-                hashTable[tablePosition] = 0;
+                hashTable[tablePosition] = -1;
                 return true;
             }
 
@@ -123,17 +132,16 @@ namespace AlgoDatPraktikum
         public void Print()
         {
             for (int i = 0; i < tableSize; i++)
-                if (hashTable[i] != 0)
+                if (hashTable[i] > 0)
                     Console.WriteLine("Elemente an Tabellenplatz {0} : {1}", i, hashTable[i]);
         }
 
 
-        // this does not work so far!!!
         protected override bool Search(int elem, out int tablePosition)
         {
             tablePosition = HashAlgorithm(elem);
 
-            if (hashTable[tablePosition] == 0)
+            if (hashTable[tablePosition] < 1)
                 return false;
 
             return true;
@@ -145,9 +153,10 @@ namespace AlgoDatPraktikum
 
             if (tablePosition < 0)
                 tablePosition += tableSize;
+            else if (hashTable[tablePosition] == 0)
+                return tablePosition;
 
-            if (hashTable[tablePosition] != elem && hashTable[tablePosition] != 0)
-               // if (hashTable[tablePosition] != 0)
+            else if (hashTable[tablePosition] != elem && hashTable[tablePosition] != 0)
             {
                 quadProbCount = -quadProbCount;
                 if (quadProbCount >= 0)
@@ -156,7 +165,7 @@ namespace AlgoDatPraktikum
                 tablePosition = HashAlgorithm(elem);
             }
 
-            //quadProbCount = 0;
+            quadProbCount = 0;
             return tablePosition;
         }
     }

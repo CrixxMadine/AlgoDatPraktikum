@@ -32,19 +32,19 @@ namespace AlgoDatPraktikum
         /// <returns></returns>
         public bool Search(int elem)
         {
-            Search(elem, out bool b);
-            return b;
+            int index = Search(elem,0);
+            return array[index]==elem;
         }
 
 
-        protected int Search(int elem, out bool b)
+        protected int Search(int elem,int index)
         {
-            b=false;
-            int i;
-            for (i = 0; i < array.Length; i++)
-                if (elem == array[i])
-                    return i;
-            return i - 1;
+            if (index == array.Length)
+                return -1;
+            if (array[index] == elem || array[index] == 0)
+                return index;
+            else
+                return Search(elem, index + 1);
         }
     }
 
@@ -65,15 +65,15 @@ namespace AlgoDatPraktikum
         }
         public bool Delete(int elem)
         {
-            int pos = Search(elem, out bool b);
-            if (b)
+            int pos = Search(elem,0);
+            if (pos < 0 || array[pos] != elem)
+                return false;
+            else
             {
-                array[pos] = array[anz];
+                array[pos] = array[--anz];
                 array[anz] = 0;
-                anz--;
                 return true;
             }
-            return false;
         }
     }
 
@@ -87,9 +87,12 @@ namespace AlgoDatPraktikum
 
         public new bool Insert(int elem)
         {
-            if (Search(elem))
+            int index = Search(elem, 0);
+            if (index < 0 || array[index] == elem)
                 return false;
-            return base.Insert(elem);
+            array[index] = elem;
+            anz++;
+            return true;
         }
     }
 
@@ -100,13 +103,14 @@ namespace AlgoDatPraktikum
     {
         public MultiSetSortedArray() : base() { }
 
-        new protected int Search(int elem, out bool b)
+
+        new protected int Search(int elem, int index)
         {
             if (array[0] == 0)
-            {
-                b = false;
                 return 0;
-            }
+            if (anz == array.Length)
+                return -1;
+
             int left = 0;
             int right = anz;
             int middle = 0;
@@ -116,7 +120,6 @@ namespace AlgoDatPraktikum
                 middle = (left + right) / 2;
                 if (array[middle] == elem)
                 {
-                    b = true;
                     return middle;
                 }
                 if (array[middle] < elem)
@@ -124,7 +127,6 @@ namespace AlgoDatPraktikum
                 if (array[middle] > elem)
                     right = middle - 1;
             }
-            b = false;
             if (array[middle] != 0 && array[middle] < elem)
                 return middle + 1;
             return middle;
@@ -134,7 +136,7 @@ namespace AlgoDatPraktikum
         {
             if (anz == array.Length)
                 return false;
-            int pos = Search(elem, out bool b);
+            int pos = Search(elem, 0);
             Insert(elem, pos);
             return true;
         }
@@ -150,8 +152,8 @@ namespace AlgoDatPraktikum
 
         public bool Delete(int elem)
         {
-            int pos = Search(elem, out bool b);
-            if (!b)
+            int pos = Search(elem, 0);
+            if (array[pos]!=elem)
             {
                 return false;
             }
@@ -176,8 +178,8 @@ namespace AlgoDatPraktikum
         {
             if (anz == array.Length)
                 return false;
-            int pos = Search(elem, out bool b);
-            if (b)
+            int pos = Search(elem,0);
+            if (array[pos]==elem)
                 return false;
             Insert(elem, pos);
             return true;
