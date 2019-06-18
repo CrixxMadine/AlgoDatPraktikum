@@ -1,0 +1,21 @@
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe.config
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.pdb
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csprojAssemblyReference.cache
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csproj.CoreCompileInputs.cache
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.exe
+C:\Users\marti\source\repos\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.pdb
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe.config
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.pdb
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csprojAssemblyReference.cache
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csproj.CoreCompileInputs.cache
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.exe
+C:\Users\Leon\Desktop\TH-AMP\4. Semester SS 19\Algorithmen und Datenstrukturen\AlgoDatPraktikum-master\AlgoDatPraktikum-master\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.pdb
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.exe
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\obj\Debug\AlgoDatPraktikum.pdb
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe.config
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.exe
+C:\Users\marti\Desktop\AlgoDatPraktikum_neu\AlgoDatPraktikum\AlgoDatPraktikum\bin\Debug\AlgoDatPraktikum.pdb
